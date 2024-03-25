@@ -1,42 +1,46 @@
-import java.util.Scanner;
+# simple-calculator
+ import java.util.Scanner;
 
-public class SimpleCalculator {
+public class Calculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        double num1, num2;
-        System.out.println("Enter first number: ");
-        num1 = scanner.nextDouble();
-        System.out.println("Enter second number: ");
-        num2 = scanner.nextDouble();
 
-        System.out.println("Select operation:");
-        System.out.println("1. Addition (+)");
-        System.out.println("2. Subtraction (-)");
-        System.out.println("3. Multiplication (*)");
-        System.out.println("4. Division (/)");
+        System.out.println("Simple Java Calculator");
+        System.out.println("Enter the first number:");
+        double num1 = scanner.nextDouble();
 
-        int choice = scanner.nextInt();
+        System.out.println("Enter the second number:");
+        double num2 = scanner.nextDouble();
 
-        switch (choice) {
-            case 1:
-                System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
+        System.out.println("Select operation: (+, -, *, /)");
+        char operator = scanner.next().charAt(0);
+
+        double result;
+
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
                 break;
-            case 2:
-                System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
+            case '-':
+                result = num1 - num2;
                 break;
-            case 3:
-                System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
+            case '*':
+                result = num1 * num2;
                 break;
-            case 4:
-                if (num2 != 0) {
-                    System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
-                } else {
-                    System.out.println("Error: Division by zero");
+            case '/':
+                if (num2 == 0) {
+                    System.out.println("Error: Division by zero!");
+                    return;
                 }
+                result = num1 / num2;
                 break;
             default:
-                System.out.println("Invalid input");
+                System.out.println("Error: Invalid operator!");
+                return;
         }
+
+        System.out.println("Result: " + result);
+
         scanner.close();
     }
 }
