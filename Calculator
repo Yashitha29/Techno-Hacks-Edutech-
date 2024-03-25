@@ -1,37 +1,42 @@
-def add(x, y):
-    return x + y
+import java.util.Scanner;
 
-def subtract(x, y):
-    return x - y
+public class SimpleCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double num1, num2;
+        System.out.println("Enter first number: ");
+        num1 = scanner.nextDouble();
+        System.out.println("Enter second number: ");
+        num2 = scanner.nextDouble();
 
-def multiply(x, y):
-    return x * y
+        System.out.println("Select operation:");
+        System.out.println("1. Addition (+)");
+        System.out.println("2. Subtraction (-)");
+        System.out.println("3. Multiplication (*)");
+        System.out.println("4. Division (/)");
 
-def divide(x, y):
-    if y != 0:
-        return x / y
-    else:
-        return "Error: Division by zero"
+        int choice = scanner.nextInt();
 
-print("Select operation:")
-print("1. Addition")
-print("2. Subtraction")
-print("3. Multiplication")
-print("4. Division")
-
-choice = input("Enter choice (1/2/3/4): ")
-
-num1 = float(input("Enter first number: "))
-num2 = float(input("Enter second number: "))
-
-if choice == '1':
-    print(num1, "+", num2, "=", add(num1, num2))
-elif choice == '2':
-    print(num1, "-", num2, "=", subtract(num1, num2))
-elif choice == '3':
-    print(num1, "*", num2, "=", multiply(num1, num2))
-elif choice == '4':
-    print(num1, "/", num2, "=", divide(num1, num2))
-else:
-    print("Invalid input")
-
+        switch (choice) {
+            case 1:
+                System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
+                break;
+            case 2:
+                System.out.println(num1 + " - " + num2 + " = " + (num1 - num2));
+                break;
+            case 3:
+                System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
+                break;
+            case 4:
+                if (num2 != 0) {
+                    System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
+                } else {
+                    System.out.println("Error: Division by zero");
+                }
+                break;
+            default:
+                System.out.println("Invalid input");
+        }
+        scanner.close();
+    }
+}
