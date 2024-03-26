@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class DiceRollSimulator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter value for Dice 1: ");
+        int dice1 = scanner.nextInt();
+
+        System.out.print("Enter value for Dice 2: ");
+        int dice2 = scanner.nextInt();
+
+        int sum = dice1 + dice2;
+
+        System.out.println("Sum: " + sum);
+
+        scanner.close();
+    }
+}
